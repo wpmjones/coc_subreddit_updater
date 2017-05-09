@@ -30,7 +30,7 @@ start_marker = '[](#RECstart)'   # [](#RECstart) should exist in your sidebar ju
 end_marker = '[](#RECend)'       # [](#RECend) should exist in your sidebar just after your war record
 newcontent = str(data['warWins']) + '-' + str(data['warLosses']) + '-' + str(data['warTies'])
 start = content.index(start_marker)
-end = content.index(end_marker)
+end = content.index(end_marker) + len(end_marker)
 content = content.replace(content[start:end], '{}{}{}'.format(start_marker, newcontent, end_marker))
 
 # Update member list
@@ -44,7 +44,7 @@ for members in data['memberList']:
   memname = members['name'].encode('ascii','ignore')    # if you have a member with nothing but non-ascii characters it will show up blank (future improvements may fix this)
   newcontent += '\n' + memname + '|' + role
 start = content.index(start_marker)
-end = content.index(end_marker)
+end = content.index(end_marker) + len(end_marker)
 content = content.replace(content[start:end], '{}{}{}'.format(start_marker, newcontent, end_marker))
 
 # Pull clan info from COC API and Update last war
@@ -56,6 +56,6 @@ start_marker = '[](#WARstart)'        # [](#WARstart) should exist in your sideb
 end_marker = '[](#WARend)'            # [](#WARend) should exist in your sidebar just after your war results
 newcontent = clanName + '(' + str(data['items'][0]['clan']['stars']) + ') vs ' + data['items'][0]['opponent']['name'].encode('ascii','ignore') + '(' + str(data['items'][0]['opponent']['stars']) + ')'
 start = content.index(start_marker)
-end = content.index(end_marker)
+end = content.index(end_marker) + len(end_marker)
 content = content.replace(content[start:end], '{}{}{}'.format(start_marker, newcontent, end_marker))
 reddit.subreddit(subreddit).mod.update(description=content)
