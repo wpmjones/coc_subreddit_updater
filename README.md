@@ -13,11 +13,6 @@ You will need a [Reddit App](https://www.reddit.com/prefs/apps) for their API.
  - Enter http://www.example.com/unused/redirect/uri for redirect uri
  
 Before you pull the trigger on your brand new script, the following tags will need to be in your existing sidebar so the script knows where to put content:
- - just before your war record - "[](#RECstart)"
- - just after your war record - [](#RECend)
- - just before your member table (it's set up for two columns) - [](#MEMstart)
- - just after your member table - [](#MEMend)
- - just before your last war result - [](#WARstart)
- - just after your last war result - [](#WARrecord)
+
  
- If you have questions, please tag me on Discord (TubaKid (Reddit Oak)!
+If you have questions, please tag me on Discord (TubaKid (Reddit Oak)!
