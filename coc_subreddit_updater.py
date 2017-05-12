@@ -3,6 +3,9 @@ import requests
 import json
 import praw
 
+def sort_by_name(d):
+  return d['name'].lower()
+
 # COC Variables
 clanName = 'Reddit Oak'          # replace with your clan name
 clanTag = 'CVCJR89'              # replace with your clan tag
@@ -19,7 +22,7 @@ content = settings['description']
 newcontent = ''
 
 # Pull clan info from COC API
-url = 'https://api.clashofclans.com/v1/clans/%25' + clanTag
+url = 'https://api.clashofclans.com/v1/clans/%23' + clanTag
 api_key = ''                     # place your api key from SuperCell here
 headers = {'Accept':'application/json','Authorization':'Bearer ' + api_key}
 r = requests.get(url, headers=headers)
@@ -34,10 +37,11 @@ end = content.index(end_marker) + len(end_marker)
 content = content.replace(content[start:end], '{}{}{}'.format(start_marker, newcontent, end_marker))
 
 # Update member list
+myMembers = sorted(data['memberList'], key=sort_by_name)
 start_marker = '[](#MEMstart)'    # [](#MEMstart) should exist in your sidebar just before your member table (two columns)
 end_marker = '[](#MEMend)'        # [](#MEMend) should exist in your sidebar just after your member table
 newcontent = ''
-for members in data['memberList']:
+for members in myMembers:
   role = members['role']
   if role == 'admin':
     role = 'elder'
