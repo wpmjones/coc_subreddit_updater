@@ -13,6 +13,6 @@ You will need a [Reddit App](https://www.reddit.com/prefs/apps) for their API.
  - Enter http://www.example.com/unused/redirect/uri for redirect uri
  
 Before you pull the trigger on your brand new script, the following tags will need to be in your existing sidebar so the script knows where to put content:
-[[https://github.com/wpmjones/coc_subreddit_updater/blob/master/images/reddit_tags.jpg|alt=Tags for your sidebar]]
+![https://github.com/wpmjones/coc_subreddit_updater/blob/master/images/reddit_tags.jpg](Tags for your sidebar)
  
 If you have questions, please tag me on Discord (TubaKid (Reddit Oak)!
